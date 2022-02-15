@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/hybrid"
+        android:id="@+id/hybrid"
+        app:showAsAction="never"/>
+    <item android:title="@string/terrain"
+        android:id="@+id/terrain"
+        app:showAsAction="never"/>
+    <item android:title="@string/normal"
+        android:id="@+id/normal"
+        app:showAsAction="never"/>
+    <item android:title="@string/satelite"
+        android:id="@+id/satellite"
+        app:showAsAction="never"/>
+    <item android:title="@string/bus"
+        android:id="@+id/bus"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_directions_bus_black_24dp"/>
+</menu>

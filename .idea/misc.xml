@@ -3,13 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/button_layout.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/button_layout_2.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/change_pass.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_account_circle_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_cake_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_camera_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_directions_bus_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_edit_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_email_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_exit_to_app_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1035" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_map_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_perm_contact_calendar_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_place_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_school_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_student_present.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/ic_subway_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/loading_shape.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/roll_background.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable-v24/student_list_background.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/bg_gradient.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_camera_black_24dp.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1035" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/splash_background.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_main.xml" value="0.13518518518518519" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_parent.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/menu/attendee_navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/menu/maptype_menu.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/menu/parent_navigation_menu.xml" value="0.19692307692307692" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/menu/studentlist_filter_menu.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/mipmap-anydpi-v26/busmarker.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/mipmap-anydpi-v26/busmarker_round.xml" value="0.1" />
       </map>
     </option>
   </component>

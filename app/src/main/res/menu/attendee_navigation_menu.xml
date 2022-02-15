@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/selectActivities"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/profile"
+             />
+
+
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/map"
+            />
+
+
+        <item
+            android:id="@+id/nav_studentsPresent"
+            android:icon="@drawable/ic_student_present"
+            android:title="@string/student_s_list"
+            />
+
+        <item
+            android:id="@+id/nav_scanner"
+            android:icon="@drawable/ic_camera_black_24dp"
+            android:title="@string/scanner"
+             />
+
+        <item
+            android:id="@+id/nav_change_password"
+            android:icon="@drawable/change_pass"
+            android:title="@string/change_password"
+             />
+
+
+    </group>
+
+    <item
+        android:title="@string/log_out"
+        >
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="@string/log_out" />
+
+        </menu>
+
+    </item>
+
+</menu>
