@@ -23,6 +23,8 @@ import com.app.sbts.R;
 import com.app.sbts.classes.SessionManager;
 import com.app.sbts.databinding.ActivityLoginBinding;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
@@ -87,6 +89,17 @@ public class LoginActivity extends AppCompatActivity {
        @Override
        public void onClick(View v) {
 
+           if(Objects.requireNonNull(binding.username.getText()).toString().isEmpty() || Objects.requireNonNull(binding.password.getText()).toString().isEmpty()){
+           if(binding.username.getText().toString().isEmpty()){
+               binding.username.setError(getString(R.string.username_error));
+           }
+           if(Objects.requireNonNull(binding.password.getText()).toString().isEmpty()){
+               binding.password.setError(getString(R.string.passoword_error));
+           }
+           }else{
+               binding.loading.setVisibility(View.VISIBLE);
+               binding.loginButton.setVisibility(View.GONE);
+           }
        }
    };
 

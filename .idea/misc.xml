@@ -28,10 +28,13 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_camera_black_24dp.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1035" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/splash_background.xml" value="0.1" />
-        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_login.xml" value="0.15" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_main.xml" value="0.13518518518518519" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_parent.xml" value="0.20416666666666666" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_password.xml" value="0.22" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_register_user.xml" value="0.20092592592592592" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/menu/attendee_navigation_menu.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/menu/maptype_menu.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/menu/parent_navigation_menu.xml" value="0.19692307692307692" />

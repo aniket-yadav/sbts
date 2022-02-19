@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.app.sbts.R;
+import com.app.sbts.databinding.ActivityPasswordBinding;
 
 public class PasswordActivity extends AppCompatActivity {
 
+    private  ActivityPasswordBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_password);
+        binding = ActivityPasswordBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 }

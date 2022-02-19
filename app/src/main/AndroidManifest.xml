@@ -29,16 +29,7 @@
         <activity
             android:name=".activities.RegisterUser"
             android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
-            android:exported="true"
-            android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -62,13 +53,22 @@
             android:exported="false" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SBTS.NoActionBar"/>
         <activity
             android:name=".activities.AttendeeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
-            android:exported="false"></activity>
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

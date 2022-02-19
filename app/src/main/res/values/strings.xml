@@ -44,14 +44,14 @@
     <string name="normal">Normal</string>
     <string name="satelite">Satelite</string>
     <string name="bus">Bus</string>
-    <string name="profile">Profile</string>
+<!--    <string name="profile">Profile</string>-->
     <string name="map">Map</string>
     <string name="student_s_list">Student\'s List</string>
     <string name="scanner">Scanner</string>
-    <string name="change_password">Change Password</string>
-    <string name="log_out">Log Out</string>
-    <string name="log_out">Log Out</string>
-    <string name="log_out">Log Out</string>
+<!--    <string name="change_password">Change Password</string>-->
+<!--    <string name="log_out">Log Out</string>-->
+<!--    <string name="log_out">Log Out</string>-->
+<!--    <string name="log_out">Log Out</string>-->
     <string name="log_out">Log Out</string>
     <string name="change_password">Change Password</string>
     <string name="bus_location">Bus Location</string>
@@ -68,4 +68,7 @@
     <string name="deny">DENY</string>
     <string name="permission_granted">Permission Granted</string>
     <string name="permission_denied">Permission Denied</string>
+    <string name="username_error">Please enter your username</string>
+    <string name="passoword_error">Please enter your password</string>
+    <string name="enter_your_email">Enter your Email</string>
 </resources>
