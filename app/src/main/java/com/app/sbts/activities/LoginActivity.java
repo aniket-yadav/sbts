@@ -19,10 +19,22 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.app.sbts.R;
 import com.app.sbts.classes.SessionManager;
+import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.ActivityLoginBinding;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -99,7 +111,49 @@ public class LoginActivity extends AppCompatActivity {
            }else{
                binding.loading.setVisibility(View.VISIBLE);
                binding.loginButton.setVisibility(View.GONE);
-           }
+                   StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.Login_URL), new Response.Listener<String>() {
+                       @Override
+                       public void onResponse(String response) {
+                           try {
+                               JSONObject jsonObject = new JSONObject(response);
+                               String success = jsonObject.getString("success");
+                               JSONArray jsonArray = jsonObject.getJSONArray("login");
+
+                               if (success.equals("1")) {
+                                   for (int i = 0; i < jsonArray.length(); i++) {
+                                       JSONObject object = jsonArray.getJSONObject(i);
+                                       role = object.getString("Role").trim();
+                                       user = object.getString("Username").trim();
+                                       sessionManager.createSession(user, role);
+                                       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                       startActivity(intent);
+                                       finish();
+                                   }
+                               }
+                           } catch ( JSONException e) {
+                               Toast.makeText(getApplicationContext(), "Please enter a valid username /password", Toast.LENGTH_SHORT).show();
+                              binding.loading.setVisibility(View.GONE);
+                               binding.loginButton.setVisibility(View.VISIBLE);
+                           }
+                       }
+                   }, new Response.ErrorListener() {
+                       @Override
+                       public void onErrorResponse(VolleyError error) {
+                           Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                           binding.loading.setVisibility(View.GONE);
+                           binding.loginButton.setVisibility(View.VISIBLE);
+                       }
+                   }) {
+                       @Override
+                       protected Map<String, String> getParams() throws AuthFailureError {
+                           Map<String, String> params = new HashMap<>();
+                           params.put("password",binding.password.getText().toString() );
+                           params.put("username",binding.username.getText().toString());
+                           return params;
+                       }
+                   };
+                   SingletonClass.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+               }
        }
    };
 
