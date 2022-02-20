@@ -83,4 +83,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile">Profile</string>
+    <string name="enter_your_old_password">Enter your old password</string>
+    <string name="enter_your_new_password">Enter your new password</string>
+    <string name="old_pass_error">\"Enter your old password \"</string>
+    <string name="new_password_error">\"Enter your new password \"</string>
+    <string name="same_pass_error">\"old  password and new password should not be the same \"</string>
 </resources>
