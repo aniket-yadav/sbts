@@ -8,7 +8,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.app.sbts.R;
 import com.app.sbts.classes.SessionManager;
@@ -39,7 +37,6 @@ public class ParentActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SessionManager sessionManager;
     SharedPreferences.Editor editor;
-    Bitmap bitmap;
     StringRequest stringRequest;
     String[] str;
     private  NavHeaderMainBinding headerBinding;
@@ -56,6 +53,13 @@ public class ParentActivity extends AppCompatActivity {
 
         View headerView = binding.navView.getHeaderView(0);
         headerBinding = NavHeaderMainBinding.bind(headerView);
+
+        headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
+        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", null),Base64.DEFAULT);
+        headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
+        headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
+
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -87,43 +91,34 @@ public class ParentActivity extends AppCompatActivity {
 
     private void getData() {
 
-        ;
         stringRequest = new StringRequest(Request.Method.POST,  getString(R.string.Parent_URL),
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        editor = sharedPreferences.edit();
+                response -> {
+                    editor = sharedPreferences.edit();
+                    str = Pattern.compile(",").split(response);
+                    editor.putString("Full_Name", str[0]);
+                    editor.putString("Photo", str[1]);
+                    editor.putString("Email", str[2]);
+                    editor.putString("Mobile_No1", str[3]);
+                    editor.putString("Bus_No", str[4]);
+                    editor.putString("DOB", str[5]);
+                    editor.putString("Student_Name", str[6]);
+                    editor.putString("Address", str[7]);
+                    editor.putString("Latitude",str[8]);
+                    editor.putString("Longitude",str[9]);
+                    editor.apply();
 
-                        str = Pattern.compile(",").split(response);
-                        editor.putString("Full_Name", str[0]);
-                        editor.putString("Photo", str[1]);
-                        editor.putString("Email", str[2]);
-                        editor.putString("Mobile_No1", str[3]);
-                        editor.putString("Bus_No", str[4]);
-                        editor.putString("DOB", str[5]);
-                        editor.putString("Student_Name", str[6]);
-                        editor.putString("Address", str[7]);
-                        editor.putString("Latitude",str[8]);
-                        editor.putString("Longitude",str[9]);
-                        editor.apply();
-
-                        String Photo = sharedPreferences.getString("Photo", null);
+                    String Photo = sharedPreferences.getString("Photo", null);
+                    if(!Photo.isEmpty()) {
                         byte[] imagebit = Base64.decode(Photo, Base64.DEFAULT);
                         headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(imagebit, 0, imagebit.length));
-
-                        headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-                        headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
-
                     }
-                }, new Response.ErrorListener() {
+                    headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
+                    headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
+
+                }, error -> Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show()) {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
                 params.put("username", Objects.requireNonNull(sharedPreferences.getString("USERNAME", "NULL")));
                 return params;
             }
