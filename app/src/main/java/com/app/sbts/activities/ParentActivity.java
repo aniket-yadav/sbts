@@ -7,6 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -58,7 +59,7 @@ public class ParentActivity extends AppCompatActivity {
         byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", null),Base64.DEFAULT);
         headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
         headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
-
+        headerBinding.imageView.setOnClickListener(imageOnclickListener);
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -79,6 +80,17 @@ public class ParentActivity extends AppCompatActivity {
 
         getData();
     }
+
+    View.OnClickListener imageOnclickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+
+        }
+    };
 
     @Override
     public boolean onSupportNavigateUp() {
