@@ -1,25 +1,16 @@
 package com.app.sbts.activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
-import androidx.navigation.NavHostController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.FragmentNavigator;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
-
 import com.app.sbts.R;
 import com.app.sbts.databinding.ActivityParentBinding;
-import com.app.sbts.fragments.MapsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class ParentActivity extends AppCompatActivity {
