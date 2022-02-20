@@ -29,6 +29,7 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1035" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/side_nav_bar.xml" value="0.1565" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/splash_background.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_attendee.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_login.xml" value="0.15" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_main.xml" value="0.13518518518518519" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
@@ -37,7 +38,10 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_register_user.xml" value="0.20092592592592592" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/app_bar_main_attendee.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/content_attendee_attendee.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_attendee_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_change_password.xml" value="0.22" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_maps.xml" value="0.1" />

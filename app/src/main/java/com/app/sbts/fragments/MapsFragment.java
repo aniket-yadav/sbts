@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.Manifest;
 import android.animation.ValueAnimator;
@@ -22,10 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.app.sbts.R;
 import com.app.sbts.classes.SingletonClass;
@@ -76,13 +76,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     LatLng newPos, oldPos;
 
     FragmentMapsBinding binding;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
         sharedPreferences = requireActivity().getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
         oldPos = new LatLng(0, 0);
+
     }
 
     @Override
@@ -92,34 +92,34 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.hybrid: {
-                gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                return true;
-            }
-            case R.id.normal: {
-                gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                return true;
-            }
-            case R.id.terrain: {
-                gMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-                return true;
-            }
-            case R.id.satellite: {
-                gMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                return true;
-            }
-            case R.id.bus: {
-                LatLng pos = marker.getPosition();
-                gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 15));
-                return true;
-            }
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//            case R.id.hybrid: {
+//                gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//                return true;
+//            }
+//            case R.id.normal: {
+//                gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//                return true;
+//            }
+//            case R.id.terrain: {
+//                gMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+//                return true;
+//            }
+//            case R.id.satellite: {
+//                gMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+//                return true;
+//            }
+//            case R.id.bus: {
+//                LatLng pos = marker.getPosition();
+//                gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 15));
+//                return true;
+//            }
+//        }
+//        return true;
+//    }
 
     @Nullable
     @Override
@@ -146,7 +146,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         attLoc.run();
     }
 
-    private Runnable attLoc = new Runnable() {
+    private final Runnable attLoc = new Runnable() {
         @Override
         public void run() {
 
@@ -189,13 +189,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                                 }
                             }
                         }
-                    }, new Response.ErrorListener() {
+                    }, ignored -> {}) {
                 @Override
-                public void onErrorResponse(VolleyError ignored) {}
-            }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<String, String>();
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<>();
                     params.put("Bus_no", Bus_No);
                     return params;
                 }
@@ -231,15 +228,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         ValueAnimator valueAnimator = ValueAnimator.ofFloat(0, 1);
         valueAnimator.setDuration(1000);
         valueAnimator.setInterpolator(new LinearInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                try {
-                    float v = animation.getAnimatedFraction();
-                    LatLng newPosition = latLngInterpolator.interpolate(v, source, destination);
-                    m.setPosition(newPosition);
-                } catch (Exception ignored) {}
-            }
+        valueAnimator.addUpdateListener(animation -> {
+            try {
+                float v = animation.getAnimatedFraction();
+                LatLng newPosition = latLngInterpolator.interpolate(v, source, destination);
+                m.setPosition(newPosition);
+            } catch (Exception ignored) {}
         });
 
         valueAnimator.start();
@@ -249,8 +243,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     public void onPause() {
         super.onPause();
         handler.removeCallbacks(attLoc);
-
-
     }
 
     @Override

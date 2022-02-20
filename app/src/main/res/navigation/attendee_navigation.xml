@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_navigation"
+    app:startDestination="@+id/nav_map">
+
+    <fragment
+        android:id="@+id/nav_parent_home"
+        android:name="com.app.sbts.fragments.ParentHome"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_parent_home" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.app.sbts.fragments.MapsFragment"
+        android:label="@string/map"
+        tools:layout="@layout/fragment_maps" >
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_password_change"
+        android:name="com.app.sbts.fragments.ChangePassword"
+        android:label="@string/change_password"
+        tools:layout="@layout/fragment_change_password" >
+    </fragment>
+
+</navigation>
