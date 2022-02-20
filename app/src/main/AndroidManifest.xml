@@ -29,7 +29,6 @@
         <activity
             android:name=".activities.RegisterUser"
             android:exported="false" />
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -54,7 +53,7 @@
         <activity
             android:name=".activities.LoginActivity"
             android:exported="false"
-            android:theme="@style/Theme.SBTS.NoActionBar"/>
+            android:theme="@style/Theme.SBTS.NoActionBar" />
         <activity
             android:name=".activities.AttendeeActivity"
             android:exported="false" />
@@ -67,7 +66,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
