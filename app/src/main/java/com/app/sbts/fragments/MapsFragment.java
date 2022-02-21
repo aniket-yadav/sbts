@@ -85,16 +85,24 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.maptype_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
 
 //    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//         Inflate the menu; this adds items to the action bar if it is present.
+//        requireActivity().getMenuInflater().inflate(R.menu.maptype_menu, menu);
+//        return true;
+//    }
+
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.maptype_menu, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
 //
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+
 //        switch (item.getItemId()) {
 //            case R.id.hybrid: {
 //                gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
@@ -120,7 +128,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 //        }
 //        return true;
 //    }
-
+//
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,

@@ -56,7 +56,7 @@ public class ParentActivity extends AppCompatActivity {
         headerBinding = NavHeaderMainBinding.bind(headerView);
 
         headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", null),Base64.DEFAULT);
+        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", "null"),Base64.DEFAULT);
         headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
         headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
         headerBinding.imageView.setOnClickListener(imageOnclickListener);
