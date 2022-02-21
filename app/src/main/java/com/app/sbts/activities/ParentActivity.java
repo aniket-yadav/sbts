@@ -15,15 +15,14 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.app.sbts.R;
 import com.app.sbts.classes.SessionManager;
 import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.ActivityParentBinding;
 import com.app.sbts.databinding.NavHeaderMainBinding;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashMap;
@@ -56,8 +55,14 @@ public class ParentActivity extends AppCompatActivity {
         headerBinding = NavHeaderMainBinding.bind(headerView);
 
         headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", "null"),Base64.DEFAULT);
-        headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
+//        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", "null"),Base64.DEFAULT);
+//        headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
+        Glide
+                .with(this)
+                .load(sharedPreferences.getString("Photo", "null"))
+                .centerCrop()
+                .placeholder(R.drawable.placeholder)
+                .into(headerBinding.imageView);
         headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
         headerBinding.imageView.setOnClickListener(imageOnclickListener);
 
@@ -119,11 +124,12 @@ public class ParentActivity extends AppCompatActivity {
                     editor.putString("Longitude",str[9]);
                     editor.apply();
 
-                    String Photo = sharedPreferences.getString("Photo", null);
-                    if(!Photo.isEmpty()) {
-                        byte[] imagebit = Base64.decode(Photo, Base64.DEFAULT);
-                        headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(imagebit, 0, imagebit.length));
-                    }
+                    Glide
+                            .with(this)
+                            .load(sharedPreferences.getString("Photo", "null"))
+                            .centerCrop()
+                            .placeholder(R.drawable.placeholder)
+                            .into(headerBinding.imageView);
                     headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
                     headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
 
