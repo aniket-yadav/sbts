@@ -2,31 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/parent_navigation"
-    app:startDestination="@+id/nav_map">
+    android:id="@+id/attendee_navigation"
+    app:startDestination="@+id/nav_student_list">
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.app.sbts.fragments.AttendeeHome"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_attendee_home" >
+        tools:layout="@layout/fragment_attendee_home" />
 
-    </fragment>
 
     <fragment
         android:id="@+id/nav_map"
         android:name="com.app.sbts.fragments.MapsFragment"
         android:label="@string/map"
-        tools:layout="@layout/fragment_maps" >
+        tools:layout="@layout/fragment_maps" />
 
 
-    </fragment>
+    <fragment
+        android:id="@+id/nav_student_list"
+        android:name="com.app.sbts.fragments.StudentList"
+        android:label="@string/student_s_list"
+        tools:layout="@layout/fragment_student_list" />
+
 
     <fragment
         android:id="@+id/nav_password_change"
         android:name="com.app.sbts.fragments.ChangePassword"
         android:label="@string/change_password"
-        tools:layout="@layout/fragment_change_password" >
-    </fragment>
+        tools:layout="@layout/fragment_change_password" />
+
 
 </navigation>

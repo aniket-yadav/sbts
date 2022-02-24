@@ -68,7 +68,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     Boolean parent = false;
     String responseString;
 
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
     String[] str;
     SharedPreferences sharedPreferences;
     Marker marker;
@@ -262,8 +262,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         if (sharedPreferences.getString("ROLE", "Attendee").equals("Parent")) {
             if (ActivityCompat.checkSelfPermission(requireActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
-            }else{
-
             }
             gMap.setMyLocationEnabled(true);
         }

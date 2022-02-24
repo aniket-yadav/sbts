@@ -10,8 +10,6 @@
         android:name="com.app.sbts.fragments.ParentHome"
         android:label="@string/profile"
         tools:layout="@layout/fragment_parent_home" >
-
-
     </fragment>
 
     <fragment

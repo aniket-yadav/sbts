@@ -94,7 +94,7 @@ public class AttendeeActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_profile, R.id.nav_map, R.id.nav_password_change)
+                R.id.nav_profile, R.id.nav_map, R.id.nav_password_change,R.id.nav_student_list)
                 .setOpenableLayout(drawer)
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.attendee_frame);
