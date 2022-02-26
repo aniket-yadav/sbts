@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.Manifest;
 import android.animation.ValueAnimator;
@@ -79,56 +81,54 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
         sharedPreferences = requireActivity().getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
         oldPos = new LatLng(0, 0);
 
     }
 
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//         Inflate the menu; this adds items to the action bar if it is present.
-//        requireActivity().getMenuInflater().inflate(R.menu.maptype_menu, menu);
-//        return true;
-//    }
 
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.maptype_menu, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-//
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        requireActivity().getMenuInflater().inflate(R.menu.maptype_menu,menu);
+    }
 
-//        switch (item.getItemId()) {
-//            case R.id.hybrid: {
-//                gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-//                return true;
-//            }
-//            case R.id.normal: {
-//                gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//                return true;
-//            }
-//            case R.id.terrain: {
-//                gMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-//                return true;
-//            }
-//            case R.id.satellite: {
-//                gMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-//                return true;
-//            }
-//            case R.id.bus: {
-//                LatLng pos = marker.getPosition();
-//                gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 15));
-//                return true;
-//            }
-//        }
-//        return true;
-//    }
-//
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+            case R.id.hybrid: {
+                gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                return true;
+            }
+            case R.id.normal: {
+                gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                return true;
+            }
+            case R.id.terrain: {
+                gMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                return true;
+            }
+            case R.id.satellite: {
+                gMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                return true;
+            }
+            case R.id.bus: {
+                if(marker != null) {
+                    LatLng pos = marker.getPosition();
+                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 15));
+                }
+                return true;
+            }
+        }
+
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.parent_frame);
+        return NavigationUI.onNavDestinationSelected(item, navController)
+                || super.onOptionsItemSelected(item);
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -259,6 +259,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         gMap.setTrafficEnabled(false);
         gMap.setBuildingsEnabled(true);
         gMap.setIndoorEnabled(true);
+
         if (sharedPreferences.getString("ROLE", "Attendee").equals("Parent")) {
             if (ActivityCompat.checkSelfPermission(requireActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;

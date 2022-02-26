@@ -80,8 +80,6 @@ public class AttendeeActivity extends AppCompatActivity {
         headerBinding = NavHeaderMainBinding.bind(headerView);
 
         headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-//        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", "null"),Base64.DEFAULT);
-//        headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
         Glide
                 .with(this)
                 .load(sharedPreferences.getString("Photo", "null"))
@@ -154,34 +152,28 @@ public class AttendeeActivity extends AppCompatActivity {
 
 
         stringRequest = new StringRequest(Request.Method.POST, getString(R.string.Attendee_URL),
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+                response -> {
 
-                        editor = sharedPreferences.edit();
-                        str = Pattern.compile(",").split(response);
-                        editor.putString("Full_Name", str[0]);
-                        editor.putString("Photo", str[1]);
-                        editor.putString("Email", str[2]);
-                        editor.putString("Mobile_No1", str[3]);
-                        editor.putString("Bus_No", str[4]);
-                        editor.putString("DOB", str[5]);
-                        editor.putString("Address", str[6]);
-                        editor.apply();
+                    editor = sharedPreferences.edit();
+                    str = Pattern.compile(",").split(response);
+                    editor.putString("Full_Name", str[0]);
+                    editor.putString("Photo", str[1]);
+                    editor.putString("Email", str[2]);
+                    editor.putString("Mobile_No1", str[3]);
+                    editor.putString("Bus_No", str[4]);
+                    editor.putString("DOB", str[5]);
+                    editor.putString("Address", str[6]);
+                    editor.apply();
 
-//                        String Photo = sharedPreferences.getString("Photo", null);
-//                        byte[] imagebit=  Base64.decode(Photo,Base64.DEFAULT);
-//                      headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(imagebit, 0,imagebit.length));
-                        Glide
-                                .with(getApplicationContext())
-                                .load(sharedPreferences.getString("Photo", "null"))
-                                .centerCrop()
-                                .placeholder(R.drawable.placeholder)
-                                .into(headerBinding.imageView);
-                     headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-                        headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
+                    Glide
+                            .with(getApplicationContext())
+                            .load(sharedPreferences.getString("Photo", "null"))
+                            .centerCrop()
+                            .placeholder(R.drawable.placeholder)
+                            .into(headerBinding.imageView);
+                 headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
+                    headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
 
-                    }
                 }, error -> Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show()) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -207,19 +199,11 @@ public class AttendeeActivity extends AppCompatActivity {
                 for(final Location location:locationResult.getLocations()){
                     String url = getString(R.string.Location_Out_URL);
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    if (!response.trim().contains("success")) {
-                                        Toast.makeText(getApplicationContext(), "Failed to capture location.", Toast.LENGTH_LONG).show();
-                                    }
+                            response -> {
+                                if (!response.trim().contains("success")) {
+                                    Toast.makeText(getApplicationContext(), "Failed to capture location.", Toast.LENGTH_LONG).show();
                                 }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    }) {
+                            }, error -> Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show()) {
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> params = new HashMap<String, String>();

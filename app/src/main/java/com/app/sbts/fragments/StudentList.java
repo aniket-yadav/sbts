@@ -58,28 +58,7 @@ public class StudentList extends Fragment {
     }
 
 
-//    @Override
-//    public boolean onOptionsItemSelected( MenuItem item) {
-//
-//        switch (item.getItemId()) {
-//            case R.id.all: {
-//                String url = getString(R.string.Student_List_URL);
-//                loadStudentList(url);
-//                return true;
-//            }
-//            case R.id.present: {
-//                String url = getString(R.string.Present_Students_URL);
-//                loadStudentList(url);
-//                return true;
-//            }
-//            case R.id.absent: {
-//                String url = getString(R.string.Absent_Students_URL);
-//                loadStudentList(url);
-//                return true;
-//            }
-//        }
-//        return true;
-//    }
+
 
 
 
@@ -121,6 +100,7 @@ public class StudentList extends Fragment {
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
