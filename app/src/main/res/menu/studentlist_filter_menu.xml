@@ -3,11 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item android:title="@string/all"
     android:id="@+id/all"
+    android:orderInCategory="100"
+
     app:showAsAction="never"/>
     <item android:title="@string/present"
         android:id="@+id/present"
+        android:orderInCategory="100"
         app:showAsAction="never"/>
     <item android:title="@string/absent"
         android:id="@+id/absent"
+        android:orderInCategory="100"
         app:showAsAction="never"/>
 </menu>
