@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import com.app.sbts.R;
 import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.StudentRowItemBinding;
 import com.app.sbts.models.Student;
+import com.bumptech.glide.Glide;
 
 import java.util.HashMap;
 import java.util.List;
@@ -53,7 +55,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         myViewHolder.binding.studentDivision.setText(sData.get(i).getDivision());
         myViewHolder.binding.studentRollNo.setText(sData.get(i).getRoll_no());
         myViewHolder.binding.studentClass.setText(sData.get(i).getS_class());
-        myViewHolder.binding.thumbnail.setImageBitmap(BitmapFactory.decodeByteArray(Base64.decode(sData.get(i).getPhoto(), Base64.DEFAULT), 0, Base64.decode(sData.get(i).getPhoto(), Base64.DEFAULT).length));
+        Glide
+                .with(sContext)
+                .load(sData.get(i).getPhoto())
+                .centerCrop()
+                .into(myViewHolder.binding.thumbnail);
+
 
         myViewHolder.binding.container.setOnClickListener(v -> {
             String name = ((TextView) v.findViewById(R.id.student_name)).getText().toString();
@@ -73,6 +80,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         Map<String, String> params = new HashMap<>();
                         params.put("rollno", rollno);
                         params.put("isPresent", "true");
+                        params.put("name",name);
                         return params;
                     }
                 };
