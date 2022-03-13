@@ -29,14 +29,27 @@ public class MainActivity extends AppCompatActivity {
         String role = user.get(SessionManager.ROLE);
 
         if (role != null) {
-            if (role.equals("Attendee")) {
-                Intent attendee = new Intent(MainActivity.this, AttendeeActivity.class);
-                startActivity(attendee);
-                finish();
-            } else if(role.equals("Parent")) {
-                Intent parent = new Intent(MainActivity.this, ParentActivity.class);
-                startActivity(parent);
-                finish();
+            switch (role) {
+                case "Attendee":
+                    Intent attendee = new Intent(MainActivity.this, AttendeeActivity.class);
+                    startActivity(attendee);
+                    finish();
+                    break;
+                case "Parent":
+                    Intent parent = new Intent(MainActivity.this, ParentActivity.class);
+                    startActivity(parent);
+                    finish();
+                    break;
+                case "Driver":
+                    Intent driver = new Intent(MainActivity.this, DriverActivity.class);
+                    startActivity(driver);
+                    finish();
+                    break;
+                case "Admin":
+                    Intent admin = new Intent(MainActivity.this, AdminActivity.class);
+                    startActivity(admin);
+                    finish();
+                    break;
             }
         }
     }

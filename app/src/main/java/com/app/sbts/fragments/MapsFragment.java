@@ -123,9 +123,24 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             }
         }
 
-        NavController navController = Navigation.findNavController(requireActivity(), R.id.parent_frame);
-        return NavigationUI.onNavDestinationSelected(item, navController)
-                || super.onOptionsItemSelected(item);
+        if (sharedPreferences.getString("ROLE", "default").equals("Parent")){
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.parent_frame);
+            return NavigationUI.onNavDestinationSelected(item, navController)
+                    || super.onOptionsItemSelected(item);
+        }else if (sharedPreferences.getString("ROLE", "default").equals("Attendee")){
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.attendee_frame);
+            return NavigationUI.onNavDestinationSelected(item, navController)
+                    || super.onOptionsItemSelected(item);
+        }else if (sharedPreferences.getString("ROLE", "default").equals("Driver")){
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.driver_frame);
+            return NavigationUI.onNavDestinationSelected(item, navController)
+                    || super.onOptionsItemSelected(item);
+        }else {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.parent_frame);
+            return NavigationUI.onNavDestinationSelected(item, navController)
+                    || super.onOptionsItemSelected(item);
+        }
+
     }
 
 
@@ -159,6 +174,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         public void run() {
 
             Bus_No = sharedPreferences.getString("Bus_No", null);
+            if(Bus_No.isEmpty()){
+                return;
+            }
             String url = getString(R.string.Location_In_URL);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>() {
@@ -166,6 +184,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                         public void onResponse(String response) {
                             gMap.clear();
                             str = Pattern.compile(",").split(response);
+                            if (str.length < 2){
+                                return;
+                            }
                             newPos = new LatLng(Double.parseDouble(str[0]), Double.parseDouble(str[1]));
 
                             if (once) {
@@ -180,22 +201,23 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                                 }
                             }
                             if (!oldPos.equals(newPos)) {
-                                att = new MarkerOptions().position(oldPos).title("Bus");
+                                att = new MarkerOptions().position(oldPos).title( sharedPreferences.getString("Bus_No","Bus"));
                                 att.icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_station_location__48));
                                 marker = gMap.addMarker(att);
                                 animateMarker(newPos, oldPos, marker, gMap);
                                 oldPos = newPos;
                             }else{
-                                att = new MarkerOptions().position(newPos).title("Bus");
+                                att = new MarkerOptions().position(newPos).title( sharedPreferences.getString("Bus_No","Bus"));
                                 att.icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_station_location__48));
                                 marker = gMap.addMarker(att);
                             }
-                            if(sharedPreferences.getString("ROLE","Attendee").equals("Parent")){
-                                if(responseString != null){
-                                    TaskParser taskParser = new TaskParser();
-                                    taskParser.execute(responseString);
-                                }
-                            }
+//                            if(sharedPreferences.getString("ROLE","Attendee").equals("Parent")){
+//                                if(responseString != null){
+//                                    TaskParser taskParser = new TaskParser();
+//                                    taskParser.execute(responseString);
+//                                }
+//                            }
+
                         }
                     }, ignored -> {}) {
                 @Override

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_driver_home"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/profile"
+            />
+
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/bus_location"
+            />
+
+
+
+        <item
+            android:id="@+id/nav_password_change"
+            android:icon="@drawable/change_pass"
+            android:title="@string/change_password"
+            />
+
+
+    </group>
+
+    <item
+        android:title="@string/log_out"
+        >
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_logout_parent"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="@string/log_out" />
+
+        </menu>
+
+    </item>
+
+</menu>
