@@ -178,7 +178,7 @@ public class DriverActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("name", sessionManager.getUserDetails().get(SessionManager.USERNAME));
                 params.put("image", imagetoString(bitmap));
-                params.put("role",sharedPreferences.getString("Role","default"));
+                params.put("role",sharedPreferences.getString("Role","Driver"));
 
                 return params;
             }

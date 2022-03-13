@@ -1,9 +1,11 @@
 package com.app.sbts.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -15,10 +17,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +47,8 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -58,7 +65,9 @@ public class AttendeeActivity extends AppCompatActivity {
     private String User;
     StringRequest stringRequest;
     String[] str;
-
+    final int PICK_CODE = 1;
+    Bitmap bitmap;
+    private  int READ_PERMISSION_CODE = 1;
     FusedLocationProviderClient fusedLocationProviderClient;
     LocationRequest locationRequest;
     LocationCallback locationCallback;
@@ -87,7 +96,6 @@ public class AttendeeActivity extends AppCompatActivity {
                 .placeholder(R.drawable.placeholder)
                 .into(headerBinding.imageView);
         headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
-        headerBinding.imageView.setOnClickListener(imageOnclickListener);
 
 
         DrawerLayout drawer = binding.drawerLayout;
@@ -123,18 +131,94 @@ public class AttendeeActivity extends AppCompatActivity {
 
         getData();
 
+        headerBinding.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(AttendeeActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    requestReadPermission();
+                    return;
+                }
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, PICK_CODE);
+
+            }
+        });
     }
 
-    View.OnClickListener imageOnclickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
+    private void requestReadPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(this).setTitle(getString(R.string.permission_needed)).setMessage("Permission to read file").setPositiveButton(
+                    getString( R.string.allow), (dialog, which) -> ActivityCompat.requestPermissions(AttendeeActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,}, READ_PERMISSION_CODE)
+            ).setNegativeButton(getString(R.string.deny), (dialog, which) -> dialog.dismiss()).create().show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_CODE && resultCode == RESULT_OK && data != null) {
+
+            Uri path = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
+                upload();
+            } catch ( IOException e) {
+                e.printStackTrace();
+            }
 
         }
-    };
+    }
+
+    private String imagetoString(Bitmap bitmap) {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
+    }
+
+    private void upload() {
+
+        String imageURL = getString(R.string.Upload_Profile_URL);
+
+        StringRequest image_request = new StringRequest(Request.Method.POST, imageURL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                getData();
+                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("name", sessionManager.getUserDetails().get(SessionManager.USERNAME));
+                params.put("image", imagetoString(bitmap));
+                params.put("role",sharedPreferences.getString("Role","Attendee"));
+
+                return params;
+            }
+        };
+
+        SingletonClass.getInstance(getApplicationContext()).addToRequestQueue(image_request);
+    }
+
+
 
 
     @Override
@@ -229,12 +313,12 @@ public class AttendeeActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
     private void requestLocationPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION) && ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
             new AlertDialog.Builder(this).setTitle(getString(R.string.permission_needed)).setMessage(getString(R.string.permission_required_message)).setPositiveButton(
                     getString( R.string.allow), (dialog, which) -> ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_CODE)
             ).setNegativeButton(getString(R.string.deny), (dialog, which) -> dialog.dismiss()).create().show();
         } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_CODE);
         }
     }
 
