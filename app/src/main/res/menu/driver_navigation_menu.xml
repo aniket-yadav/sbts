@@ -13,6 +13,13 @@
             />
 
         <item
+            android:id="@+id/nav_driver_bus"
+            android:icon="@drawable/ic_bus_24"
+            android:title="@string/bus"
+            />
+
+
+        <item
             android:id="@+id/nav_map"
             android:icon="@drawable/ic_map_black_24dp"
             android:title="@string/bus_location"

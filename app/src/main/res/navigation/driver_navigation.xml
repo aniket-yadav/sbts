@@ -13,6 +13,13 @@
     </fragment>
 
     <fragment
+        android:id="@+id/nav_driver_bus"
+        android:name="com.app.sbts.fragments.MyBus"
+        android:label="@string/bus"
+        tools:layout="@layout/fragment_my_bus" >
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_map"
         android:name="com.app.sbts.fragments.MapsFragment"
         android:label="@string/map"

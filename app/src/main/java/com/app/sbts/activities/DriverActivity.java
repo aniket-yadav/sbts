@@ -21,14 +21,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.app.sbts.R;
 import com.app.sbts.classes.SessionManager;
@@ -54,7 +50,7 @@ public class DriverActivity extends AppCompatActivity {
     String[] str;
     final int PICK_CODE = 1;
     Bitmap bitmap;
-    private  int READ_PERMISSION_CODE = 1;
+    private final int READ_PERMISSION_CODE = 1;
     private NavHeaderMainBinding headerBinding;
     ActivityDriverBinding binding;
 
@@ -85,7 +81,7 @@ public class DriverActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_driver_home, R.id.nav_map, R.id.nav_password_change)
+                R.id.nav_driver_home,R.id.nav_driver_bus, R.id.nav_map, R.id.nav_password_change)
                 .setOpenableLayout(drawer)
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.driver_frame);
@@ -101,19 +97,16 @@ public class DriverActivity extends AppCompatActivity {
 
         getData();
 
-        headerBinding.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(DriverActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    requestReadPermission();
-                    return;
-                }
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, PICK_CODE);
-
+        headerBinding.imageView.setOnClickListener(v -> {
+            if (ContextCompat.checkSelfPermission(DriverActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestReadPermission();
+                return;
             }
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, PICK_CODE);
+
         });
     }
 
@@ -157,23 +150,14 @@ public class DriverActivity extends AppCompatActivity {
 
         String imageURL = getString(R.string.Upload_Profile_URL);
 
-        StringRequest image_request = new StringRequest(Request.Method.POST, imageURL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                    getData();
-                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+        StringRequest image_request = new StringRequest(Request.Method.POST, imageURL, response -> {
+                getData();
+            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-
-            }
-        }) {
+        }, error -> Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show()) {
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<>();
                 params.put("name", sessionManager.getUserDetails().get(SessionManager.USERNAME));

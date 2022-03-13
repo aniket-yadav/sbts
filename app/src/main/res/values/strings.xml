@@ -17,6 +17,7 @@
     <string name="Upload_Profile_URL">https://sbts2022.000webhostapp.com/api/uploadprofile.php</string>
     <string name="Parent_URL">https://sbts2022.000webhostapp.com/api/parent.php</string>
     <string name="Driver_URL">https://sbts2022.000webhostapp.com/api/driver.php</string>
+    <string name="Bus_URL">https://sbts2022.000webhostapp.com/api/busDetails.php</string>
     <string name="Upload_Profile_Parent_URL">https://sbts2022.000webhostapp.com/api/uploadprofileparent.php</string>
     <string name="Reset_Password_URL">https://sbts2022.000webhostapp.com/api/resetpassword.php</string>
     <string name="photo_Set_TEXT">Selected</string>

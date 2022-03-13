@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -24,10 +23,7 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.app.sbts.R;
 import com.app.sbts.classes.SessionManager;
@@ -55,7 +51,7 @@ public class ParentActivity extends AppCompatActivity {
     String[] str;
     final int PICK_CODE = 1;
     Bitmap bitmap;
-    private  int READ_PERMISSION_CODE = 1;
+    private final int READ_PERMISSION_CODE = 1;
     private  NavHeaderMainBinding headerBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +62,11 @@ public class ParentActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
 
         sessionManager = new SessionManager(this);
-        HashMap<String, String> user = sessionManager.getUserDetails();
 
         View headerView = binding.navView.getHeaderView(0);
         headerBinding = NavHeaderMainBinding.bind(headerView);
 
         headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-//        byte[] image_bit =  Base64.decode(sharedPreferences.getString("Photo", "null"),Base64.DEFAULT);
-//        headerBinding.imageView.setImageBitmap(BitmapFactory.decodeByteArray(image_bit, 0, image_bit.length));
         Glide
                 .with(this)
                 .load(sharedPreferences.getString("Photo", "null"))
@@ -100,19 +93,16 @@ public class ParentActivity extends AppCompatActivity {
         });
 
         getData();
-        headerBinding.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(ParentActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    requestReadPermission();
-                    return;
-                }
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, PICK_CODE);
-
+        headerBinding.imageView.setOnClickListener(v -> {
+            if (ContextCompat.checkSelfPermission(ParentActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestReadPermission();
+                return;
             }
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent, PICK_CODE);
+
         });
     }
 
@@ -159,23 +149,14 @@ public class ParentActivity extends AppCompatActivity {
 
         String imageURL = getString(R.string.Upload_Profile_URL);
 
-        StringRequest image_request = new StringRequest(Request.Method.POST, imageURL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                getData();
-                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+        StringRequest image_request = new StringRequest(Request.Method.POST, imageURL, response -> {
+            getData();
+            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-
-            }
-        }) {
+        }, error -> Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show()) {
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<>();
                 params.put("name", sessionManager.getUserDetails().get(SessionManager.USERNAME));
