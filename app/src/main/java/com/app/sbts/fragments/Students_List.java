@@ -34,7 +34,7 @@ public class Students_List extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         binding =  FragmentStudentsListBinding.inflate(inflater, container, false);
         studentList = new ArrayList<>();
 

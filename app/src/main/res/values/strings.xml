@@ -95,4 +95,5 @@
     <string name="bus_locations">Bus Locations</string>
     <string name="drivers_list">Drivers List</string>
     <string name="parents_list">Parents List</string>
+    <string name="bus_list_url">https://sbts2022.000webhostapp.com/api/busList.php</string>
 </resources>
