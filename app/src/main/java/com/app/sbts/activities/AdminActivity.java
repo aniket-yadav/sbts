@@ -45,20 +45,15 @@ public class AdminActivity extends AppCompatActivity {
         View headerView = binding.navView.getHeaderView(0);
         headerBinding = NavHeaderMainBinding.bind(headerView);
 
-        headerBinding.userName.setText(sharedPreferences.getString("Full_Name", null));
-        Glide
-                .with(this)
-                .load(sharedPreferences.getString("Photo", "null"))
-                .centerCrop()
-                .placeholder(R.drawable.placeholder)
-                .into(headerBinding.imageView);
-        headerBinding.userEmail.setText(sharedPreferences.getString("Email", null));
 
+        headerBinding.userName.setText(sessionManager.getUserDetails().get(SessionManager.USERNAME));
+
+        headerBinding.userEmail.setVisibility(View.GONE);
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_profile, R.id.nav_map, R.id.nav_password_change,R.id.nav_student_list)
+                R.id.nav_busList, R.id.nav_driver_list, R.id.nav_parent_list,R.id.nav_students_list,R.id.nav_bus_locations)
                 .setOpenableLayout(drawer)
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.admin_frame);

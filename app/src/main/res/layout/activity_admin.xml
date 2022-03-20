@@ -22,5 +22,5 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/attendee_navigation_menu" />
+        app:menu="@menu/admin_navigation_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -92,4 +92,7 @@
     <string name="new_password_error">\"Enter your new password \"</string>
     <string name="same_pass_error">\"old  password and new password should not be the same \"</string>
     <string name="bus_list">Bus List</string>
+    <string name="bus_locations">Bus Locations</string>
+    <string name="drivers_list">Drivers List</string>
+    <string name="parents_list">Parents List</string>
 </resources>

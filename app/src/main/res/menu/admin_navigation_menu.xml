@@ -15,25 +15,31 @@
 
 
         <item
-            android:id="@+id/nav_map"
+            android:id="@+id/nav_bus_locations"
             android:icon="@drawable/ic_map_black_24dp"
-            android:title="@string/map"
+            android:title="@string/bus_locations"
             />
 
 
         <item
-            android:id="@+id/nav_student_list"
+            android:id="@+id/nav_driver_list"
+            android:icon="@drawable/ic_baseline_people_24"
+            android:title="@string/drivers_list"
+            />
+
+        <item
+            android:id="@+id/nav_parent_list"
+            android:icon="@drawable/ic_baseline_people_24"
+            android:title="@string/parents_list"
+            />
+
+
+        <item
+            android:id="@+id/nav_students_list"
             android:icon="@drawable/ic_student_present"
             android:title="@string/student_s_list"
             />
 
-
-
-        <item
-            android:id="@+id/nav_password_change"
-            android:icon="@drawable/change_pass"
-            android:title="@string/change_password"
-            />
 
 
     </group>
