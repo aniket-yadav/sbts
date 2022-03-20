@@ -91,4 +91,5 @@
     <string name="old_pass_error">\"Enter your old password \"</string>
     <string name="new_password_error">\"Enter your new password \"</string>
     <string name="same_pass_error">\"old  password and new password should not be the same \"</string>
+    <string name="bus_list">Bus List</string>
 </resources>

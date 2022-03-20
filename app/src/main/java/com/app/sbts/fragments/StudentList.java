@@ -19,17 +19,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.app.sbts.R;
 import com.app.sbts.adaptor.RecyclerViewAdapter;
 import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.FragmentStudentListBinding;
 import com.app.sbts.models.Student;
-import com.google.android.material.navigation.NavigationView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -110,7 +106,7 @@ public class StudentList extends Fragment {
     void  loadStudentList(String url){
         binding.loadingStudentList.setVisibility(View.VISIBLE);
         request = new JsonArrayRequest(url, response -> {
-studentList.clear();
+        studentList.clear();
             JSONObject jsonObject;
 
             for (int i = response.length() - 1; i >= 0; i--) {
