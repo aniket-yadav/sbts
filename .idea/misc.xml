@@ -49,13 +49,18 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/content_main_attendee.xml" value="0.1712962962962963" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/content_main_driver.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_attendee_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_bus_list.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_change_password.xml" value="0.22" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_driver_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_driver_list.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_my_bus.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_parent_home.xml" value="0.22" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_parent_list.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_registration_requests.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_student_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_students__list.xml" value="0.2" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/student_row_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />
