@@ -99,6 +99,8 @@
     <string name="driver_list_url">https://sbts2022.000webhostapp.com/api/driverList.php</string>
     <string name="parent_list_url">https://sbts2022.000webhostapp.com/api/parentList.php</string>
     <string name="request_list_url">https://sbts2022.000webhostapp.com/api/RegistrationRequests.php</string>
+    <string name="approve_url">https://sbts2022.000webhostapp.com/api/approveRequest.php</string>
     <string name="registration_requests">Registration Requests</string>
     <string name="approve">Approve</string>
+    <string name="approved">Approved</string>
 </resources>

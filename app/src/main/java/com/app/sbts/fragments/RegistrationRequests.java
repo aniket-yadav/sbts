@@ -55,8 +55,8 @@ public class RegistrationRequests extends Fragment {
                     jsonObject = response.getJSONObject(i);
                     Parent parent = new Parent();
                     parent.setFull_Name(jsonObject.getString("Full_Name"));
-                    parent.setMobile_No1(jsonObject.getString("Email"));
-                    parent.setEmail(jsonObject.getString("Mobile_No1"));
+                    parent.setMobile_No1(jsonObject.getString("Mobile_No1"));
+                    parent.setEmail(jsonObject.getString("Email"));
                     parent.setStudent_Name(jsonObject.getString("Student_Name"));
                     requestsList.add(parent);
                 } catch ( JSONException e) {
