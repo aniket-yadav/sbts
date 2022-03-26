@@ -53,7 +53,7 @@ public class AdminActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_busList, R.id.nav_driver_list, R.id.nav_parent_list,R.id.nav_students_list,R.id.nav_bus_locations)
+                R.id.nav_busList, R.id.nav_driver_list, R.id.nav_parent_list,R.id.nav_students_list,R.id.nav_bus_locations,R.id.nav_requests_list)
                 .setOpenableLayout(drawer)
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.admin_frame);

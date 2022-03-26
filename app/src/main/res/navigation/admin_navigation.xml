@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_parent_list" />
 
     <fragment
+        android:id="@+id/nav_requests_list"
+        android:name="com.app.sbts.fragments.RegistrationRequests"
+        android:label="@string/registration_requests"
+        tools:layout="@layout/fragment_registration_requests" />
+
+    <fragment
         android:id="@+id/nav_bus_locations"
         android:name="com.app.sbts.fragments.Bus_Locations"
         android:label="@string/bus_locations"
