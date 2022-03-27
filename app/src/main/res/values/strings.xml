@@ -97,10 +97,12 @@
     <string name="parents_list">Parents List</string>
     <string name="bus_list_url">https://sbts2022.000webhostapp.com/api/busList.php</string>
     <string name="driver_list_url">https://sbts2022.000webhostapp.com/api/driverList.php</string>
+    <string name="attendee_list_url">https://sbts2022.000webhostapp.com/api/attendeeList.php</string>
     <string name="parent_list_url">https://sbts2022.000webhostapp.com/api/parentList.php</string>
     <string name="request_list_url">https://sbts2022.000webhostapp.com/api/RegistrationRequests.php</string>
     <string name="approve_url">https://sbts2022.000webhostapp.com/api/approveRequest.php</string>
     <string name="registration_requests">Registration Requests</string>
     <string name="approve">Approve</string>
     <string name="approved">Approved</string>
+    <string name="attendee_list">Attendee List</string>
 </resources>

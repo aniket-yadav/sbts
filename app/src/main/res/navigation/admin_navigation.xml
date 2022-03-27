@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_driver_list" />
 
     <fragment
+        android:id="@+id/nav_attendee_list"
+        android:name="com.app.sbts.fragments.AttendeeList"
+        android:label="@string/attendee_list"
+        tools:layout="@layout/fragment_attendee_list" />
+
+    <fragment
         android:id="@+id/nav_busList"
         android:name="com.app.sbts.fragments.BusList"
         android:label="@string/bus_list"
