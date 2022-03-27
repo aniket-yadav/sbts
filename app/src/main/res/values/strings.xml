@@ -17,6 +17,7 @@
     <string name="Upload_Profile_URL">https://sbts2022.000webhostapp.com/api/uploadprofile.php</string>
     <string name="Parent_Registration_URL">https://sbts2022.000webhostapp.com/api/registerParent.php</string>
     <string name="Attendee_Registration_URL">https://sbts2022.000webhostapp.com/api/registerAttendee.php</string>
+    <string name="Student_Registration_URL">https://sbts2022.000webhostapp.com/api/registerStudent.php</string>
     <string name="Driver_Registration_URL">https://sbts2022.000webhostapp.com/api/registerDriver.php</string>
     <string name="Parent_URL">https://sbts2022.000webhostapp.com/api/parent.php</string>
     <string name="Driver_URL">https://sbts2022.000webhostapp.com/api/driver.php</string>
@@ -41,13 +42,12 @@
     <string name="residential_address">Enter your residential address</string>
     <string name="city">Enter the name of your city</string>
     <string name="pin_code">Enter your pin-code</string>
-    <string name="student_details">Student Details</string>
     <string name="id_no">Enter your childs ID Number</string>
     <string name="name">Enter your childs name</string>
     <string name="hybrid">Hybrid</string>
     <string name="terrain">Terrain</string>
     <string name="normal">Normal</string>
-    <string name="satelite">Satelite</string>
+    <string name="satelite">Satellite</string>
     <string name="bus">Bus</string>
     <!--    <string name="profile">Profile</string>-->
     <string name="map">Map</string>
@@ -107,9 +107,7 @@
     <string name="approve">Approve</string>
     <string name="approved">Approved</string>
     <string name="attendee_list">Attendee List</string>
-    <string name="age">Age</string>
     <string name="full_name">Full Name</string>
-    <string name="email">Email</string>
     <string name="mobile">Mobile</string>
     <string name="alternate_mobile">Alternate mobile</string>
     <string name="aadhaar_detail">Aadhaar Detail</string>
@@ -122,4 +120,20 @@
     <string name="color">Color</string>
     <string name="bus_no">Bus No</string>
     <string name="add_bus_url">https://sbts2022.000webhostapp.com/api/addBus.php</string>
+    <string name="student_details">Student Details</string>
+    <string name="student_name">Student Name</string>
+    <string name="father_name">Father Name</string>
+    <string name="mother_name">Mother Name</string>
+    <string name="male_female">Male/Female</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="city_name">City</string>
+    <string name="pincode">Pin code</string>
+    <string name="student_id">Student Id</string>
+    <string name="roll_no">Roll No</string>
+    <string name="className">Class</string>
+    <string name="division">Division</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="age">Age</string>
+    <string name="add_student">Add Student</string>
 </resources>

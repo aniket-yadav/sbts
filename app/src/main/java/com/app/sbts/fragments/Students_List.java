@@ -1,5 +1,6 @@
 package com.app.sbts.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.app.sbts.R;
+import com.app.sbts.activities.RegisterStudent;
 import com.app.sbts.adaptor.RecyclerViewAdapter;
 import com.app.sbts.adaptor.StudentsAdaptor;
 import com.app.sbts.classes.SingletonClass;
@@ -41,6 +43,7 @@ public class Students_List extends Fragment {
         String url = getString(R.string.Student_List_URL);
         loadStudentList(url);
 
+        binding.addStudent.setOnClickListener(v -> startActivity(new Intent(requireActivity(), RegisterStudent.class)));
         return  binding.getRoot();
     }
 
