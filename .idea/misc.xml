@@ -27,6 +27,7 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/bg_gradient.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_camera_black_24dp.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1035" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/person_add.xml" value="0.1385" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/side_nav_bar.xml" value="0.1565" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/drawable/splash_background.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_admin.xml" value="0.1" />
@@ -37,6 +38,8 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_parent.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_password.xml" value="0.22" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_register_attendee.xml" value="0.2" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_register_driver.xml" value="0.2" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_register_user.xml" value="0.20092592592592592" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
@@ -55,7 +58,7 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_bus_list.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_change_password.xml" value="0.22" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_driver_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_driver_list.xml" value="0.1" />
+        <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_driver_list.xml" value="0.22" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/layout/fragment_my_bus.xml" value="0.1" />

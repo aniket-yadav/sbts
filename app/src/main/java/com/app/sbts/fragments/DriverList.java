@@ -1,5 +1,6 @@
 package com.app.sbts.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.app.sbts.R;
+import com.app.sbts.activities.RegisterDriver;
 import com.app.sbts.adaptor.BusAdaptor;
 import com.app.sbts.adaptor.DriverAdaptor;
 import com.app.sbts.classes.SingletonClass;
@@ -40,6 +42,13 @@ public class DriverList extends Fragment {
 
         String url = getString(R.string.driver_list_url);
         loadDriverList(url);
+
+        binding.addDriver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(requireActivity(), RegisterDriver.class));
+            }
+        });
         return  binding.getRoot();
 
 
