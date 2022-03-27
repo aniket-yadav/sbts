@@ -27,6 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SBTS">
         <activity
+            android:name=".activities.AddBus"
+            android:exported="false" />
+        <activity
             android:name=".activities.RegisterAttendee"
             android:exported="false" />
         <activity

@@ -115,4 +115,11 @@
     <string name="aadhaar_detail">Aadhaar Detail</string>
     <string name="aadhaar_no">Aadhaar no</string>
     <string name="add_driver">add driver</string>
+    <string name="bus_details">Bus Details</string>
+    <string name="bus_name">Bus Name</string>
+    <string name="vehicle_model">Vehicle Model</string>
+    <string name="capacity">Capacity</string>
+    <string name="color">Color</string>
+    <string name="bus_no">Bus No</string>
+    <string name="add_bus_url">https://sbts2022.000webhostapp.com/api/addBus.php</string>
 </resources>
