@@ -43,12 +43,7 @@ public class DriverList extends Fragment {
         String url = getString(R.string.driver_list_url);
         loadDriverList(url);
 
-        binding.addDriver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(requireActivity(), RegisterDriver.class));
-            }
-        });
+        binding.addDriver.setOnClickListener(v -> startActivity(new Intent(requireActivity(), RegisterDriver.class)));
         return  binding.getRoot();
 
 
