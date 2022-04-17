@@ -2,28 +2,21 @@ package com.app.sbts.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.app.sbts.R;
 import com.app.sbts.activities.RegisterDriver;
-import com.app.sbts.adaptor.BusAdaptor;
 import com.app.sbts.adaptor.DriverAdaptor;
 import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.FragmentDriverListBinding;
-import com.app.sbts.models.Bus;
 import com.app.sbts.models.Driver;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +53,8 @@ public class DriverList extends Fragment {
                     jsonObject = response.getJSONObject(i);
                     Driver driver = new Driver();
                     driver.setFull_Name(jsonObject.getString("Full_Name"));
-                    driver.setMobile_No1(jsonObject.getString("Email"));
-                    driver.setEmail(jsonObject.getString("Mobile_No1"));
+                    driver.setEmail(jsonObject.getString("Email"));
+                    driver.setMobile_No1(jsonObject.getString("Mobile_No1"));
                     driver.setBus_No(jsonObject.getString("Bus_No"));
                     driverList.add(driver);
                 } catch ( JSONException e) {
@@ -71,7 +64,7 @@ public class DriverList extends Fragment {
 
             binding.loadingDriverList.setVisibility(View.GONE);
 
-            driverAdaptor = new DriverAdaptor(requireActivity().getApplicationContext(), driverList);
+            driverAdaptor = new DriverAdaptor(requireActivity().getApplicationContext(), driverList,"Driver");
             binding.driverRecycler.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
             binding.driverRecycler.setAdapter(driverAdaptor);
 

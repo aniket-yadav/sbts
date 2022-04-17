@@ -14,12 +14,9 @@ import android.widget.Toast;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.app.sbts.R;
 import com.app.sbts.activities.RegisterAttendee;
-import com.app.sbts.adaptor.BusAdaptor;
 import com.app.sbts.adaptor.DriverAdaptor;
 import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.FragmentAttendeeListBinding;
-import com.app.sbts.databinding.FragmentDriverListBinding;
-import com.app.sbts.models.Bus;
 import com.app.sbts.models.Driver;
 
 import org.json.JSONException;
@@ -60,8 +57,8 @@ public class AttendeeList extends Fragment {
                     jsonObject = response.getJSONObject(i);
                     Driver driver = new Driver();
                     driver.setFull_Name(jsonObject.getString("Full_Name"));
-                    driver.setMobile_No1(jsonObject.getString("Email"));
-                    driver.setEmail(jsonObject.getString("Mobile_No1"));
+                    driver.setEmail(jsonObject.getString("Email"));
+                    driver.setMobile_No1(jsonObject.getString("Mobile_No1"));
                     driver.setBus_No(jsonObject.getString("Bus_No"));
                     driverList.add(driver);
                 } catch ( JSONException e) {
@@ -71,7 +68,7 @@ public class AttendeeList extends Fragment {
 
             binding.loadingAttendeeList.setVisibility(View.GONE);
 
-            driverAdaptor = new DriverAdaptor(requireActivity().getApplicationContext(), driverList);
+            driverAdaptor = new DriverAdaptor(requireActivity().getApplicationContext(), driverList,"Attendee");
             binding.attendeeRecycler.setLayoutManager(new LinearLayoutManager(requireActivity().getApplicationContext()));
             binding.attendeeRecycler.setAdapter(driverAdaptor);
 

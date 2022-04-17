@@ -12,11 +12,9 @@ import android.widget.Toast;
 
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.app.sbts.R;
-import com.app.sbts.adaptor.DriverAdaptor;
 import com.app.sbts.adaptor.ParentAdaptor;
 import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.FragmentParentListBinding;
-import com.app.sbts.models.Driver;
 import com.app.sbts.models.Parent;
 
 import org.json.JSONException;
@@ -56,8 +54,8 @@ public class ParentList extends Fragment {
                     jsonObject = response.getJSONObject(i);
                     Parent parent = new Parent();
                     parent.setFull_Name(jsonObject.getString("Full_Name"));
-                    parent.setMobile_No1(jsonObject.getString("Email"));
-                    parent.setEmail(jsonObject.getString("Mobile_No1"));
+                    parent.setEmail(jsonObject.getString("Email"));
+                    parent.setMobile_No1(jsonObject.getString("Mobile_No1"));
                     parent.setStudent_Name(jsonObject.getString("Student_Name"));
                     parentList.add(parent);
                 } catch ( JSONException e) {
