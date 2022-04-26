@@ -21,12 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/aldrich"
         android:text="School Bus Tracking System"
         android:textColor="#03A9F4"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <com.google.android.material.imageview.ShapeableImageView
