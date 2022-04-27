@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        rss.setSpan(rcs,30,40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        rss.setSpan(rcs,33,43, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.userRegistration.setText(rss);
         binding.userRegistration.setMovementMethod(LinkMovementMethod.getInstance());
         SpannableString pss = new SpannableString(getString(R.string.reset_password));
