@@ -174,8 +174,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         public void run() {
 
             Bus_No = sharedPreferences.getString("Bus_No", null);
-            if(Bus_No.isEmpty()){
-                return;
+            if(Bus_No != null) {
+                if (Bus_No.isEmpty()) {
+                    return;
+                }
             }
             String url = getString(R.string.Location_In_URL);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

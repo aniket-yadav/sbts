@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.app.sbts.R;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         HashMap<String, String> user = sessionManager.getUserDetails();
         String role = user.get(SessionManager.ROLE);
+        Log.i("login response", role);
 
         if (role != null) {
             switch (role) {
