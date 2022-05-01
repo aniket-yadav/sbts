@@ -143,4 +143,5 @@
     <string name="payment">Payment</string>
     <string name="pay">Pay</string>
     <string name="request_payment">Request Payment</string>
+    <string name="delete">Delete</string>
 </resources>

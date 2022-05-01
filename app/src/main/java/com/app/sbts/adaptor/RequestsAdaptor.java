@@ -57,7 +57,7 @@ public class RequestsAdaptor extends RecyclerView.Adapter<RequestsAdaptor.MyView
         myViewHolder.binding.parentMobile.setText(sData.get(i).getMobile_No1());
         myViewHolder.binding.studentName.setText(sData.get(i).getStudent_Name());
 
-        String email = sData.get(i).getEmail();
+        String email = sData.get(myViewHolder.getAdapterPosition()).getEmail();
         myViewHolder.binding.approve.setOnClickListener(v -> {
           StringRequest  stringRequest = new StringRequest(Request.Method.POST,  sContext.getString(R.string.approve_url),
                     response -> {
@@ -68,6 +68,20 @@ public class RequestsAdaptor extends RecyclerView.Adapter<RequestsAdaptor.MyView
                             myViewHolder.binding.approve.setText(R.string.approved);
                         }
 
+                    }, error -> Toast.makeText(sContext, error.toString(), Toast.LENGTH_LONG).show()) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("email",email);
+                    return params;
+                }
+            };
+            SingletonClass.getInstance(sContext).addToRequestQueue(stringRequest);
+        });
+        myViewHolder.binding.delete.setOnClickListener(v -> {
+            StringRequest  stringRequest = new StringRequest(Request.Method.POST,  "https://sbts2022.000webhostapp.com/api/delete_parent_registration_request.php",
+                    response -> {
+                        Toast.makeText(sContext, response, Toast.LENGTH_LONG).show();
                     }, error -> Toast.makeText(sContext, error.toString(), Toast.LENGTH_LONG).show()) {
                 @Override
                 protected Map<String, String> getParams() {
