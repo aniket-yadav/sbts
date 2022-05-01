@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         HashMap<String, String> user = sessionManager.getUserDetails();
         String role = user.get(SessionManager.ROLE);
-        Log.i("login response", role);
 
         if (role != null) {
             switch (role) {
