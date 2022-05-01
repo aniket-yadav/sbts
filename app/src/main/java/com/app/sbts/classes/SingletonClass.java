@@ -52,6 +52,7 @@ public class SingletonClass {
             }
         });
         requestQueue.add(request);
+
     }
 
 }

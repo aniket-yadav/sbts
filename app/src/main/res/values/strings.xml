@@ -140,4 +140,6 @@
     <string name="apply">Apply</string>
     <string name="bus_no_url">https://sbts2022.000webhostapp.com/api/bus_no_list.php</string>
     <string name="update_bus_no">https://sbts2022.000webhostapp.com/api/update_bus_no.php</string>
+    <string name="payment">Payment</string>
+    <string name="pay">Pay</string>
 </resources>

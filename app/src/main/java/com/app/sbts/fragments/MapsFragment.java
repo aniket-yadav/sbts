@@ -174,7 +174,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         public void run() {
 
             Bus_No = sharedPreferences.getString("Bus_No", null);
-            if(Bus_No.isEmpty()){
+            if(Bus_No == null) {
+             return;
+            }
+            if (Bus_No.isEmpty()) {
                 return;
             }
             String url = getString(R.string.Location_In_URL);
@@ -182,6 +185,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            if(gMap == null){
+                                return;
+                            }
                             gMap.clear();
                             str = Pattern.compile(",").split(response);
                             if (str.length < 2){

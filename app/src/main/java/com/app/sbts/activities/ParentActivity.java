@@ -92,6 +92,7 @@ public class ParentActivity extends AppCompatActivity {
             return true;
         });
 
+
         getData();
         headerBinding.imageView.setOnClickListener(v -> {
             if (ContextCompat.checkSelfPermission(ParentActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
