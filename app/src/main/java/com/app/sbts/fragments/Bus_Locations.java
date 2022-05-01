@@ -53,12 +53,12 @@ public class Bus_Locations extends Fragment implements OnMapReadyCallback {
         }
     }
 
+
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         loadLocations();
     }
-
 
     @Override
     public void onPause() {

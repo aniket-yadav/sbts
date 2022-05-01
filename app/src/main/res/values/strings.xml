@@ -142,4 +142,5 @@
     <string name="update_bus_no">https://sbts2022.000webhostapp.com/api/update_bus_no.php</string>
     <string name="payment">Payment</string>
     <string name="pay">Pay</string>
+    <string name="request_payment">Request Payment</string>
 </resources>

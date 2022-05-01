@@ -57,6 +57,7 @@ public class ParentList extends Fragment {
                     parent.setEmail(jsonObject.getString("Email"));
                     parent.setMobile_No1(jsonObject.getString("Mobile_No1"));
                     parent.setStudent_Name(jsonObject.getString("Student_Name"));
+                    parent.setHasPaid(jsonObject.getString("hasPaid"));
                     parentList.add(parent);
                 } catch ( JSONException e) {
                     e.printStackTrace();

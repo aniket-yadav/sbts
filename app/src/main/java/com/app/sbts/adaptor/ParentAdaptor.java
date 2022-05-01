@@ -2,9 +2,17 @@ package com.app.sbts.adaptor;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
+import com.app.sbts.activities.Payment_Activity;
+import com.app.sbts.classes.SingletonClass;
 import com.app.sbts.databinding.BusItemBinding;
 import com.app.sbts.databinding.DriverItemBinding;
 import com.app.sbts.databinding.ParentItemBinding;
@@ -12,8 +20,10 @@ import com.app.sbts.models.Bus;
 import com.app.sbts.models.Driver;
 import com.app.sbts.models.Parent;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
+import java.util.Objects;
 
 
 public class ParentAdaptor extends RecyclerView.Adapter<ParentAdaptor.MyViewHolder> {
@@ -44,6 +54,27 @@ public class ParentAdaptor extends RecyclerView.Adapter<ParentAdaptor.MyViewHold
         myViewHolder.binding.parentMobile.setText(sData.get(i).getMobile_No1());
         myViewHolder.binding.studentName.setText(sData.get(i).getStudent_Name());
 
+        if(sData.get(i).getHasPaid().equalsIgnoreCase("YES")){
+            myViewHolder.binding.requestPayment.setVisibility(View.GONE);
+        }
+        myViewHolder.binding.requestPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST,  "https://sbts2022.000webhostapp.com/api/send_payment_mail.php",
+                        response -> {
+                            Toast.makeText(sContext,response,Toast.LENGTH_LONG).show();
+
+                        }, error -> Toast.makeText(sContext, error.toString(), Toast.LENGTH_LONG).show()) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("email",sData.get(myViewHolder.getAdapterPosition()).getEmail() );
+                        return params;
+                    }
+                };
+                SingletonClass.getInstance(sContext).addToRequestQueue(stringRequest);
+            }
+        });
     }
 
     @Override

@@ -5,13 +5,24 @@ public class Parent {
     String Email;
     String Mobile_No1;
 
+    public String getHasPaid() {
+        return hasPaid;
+    }
+
+    public void setHasPaid(String hasPaid) {
+        this.hasPaid = hasPaid;
+    }
+
+    String hasPaid;
+
     public Parent() {
     }
 
-    public Parent(String full_Name, String email, String mobile_No1, String student_Name) {
+    public Parent(String full_Name, String email, String mobile_No1, String hasPaid, String student_Name) {
         Full_Name = full_Name;
         Email = email;
         Mobile_No1 = mobile_No1;
+        this.hasPaid = hasPaid;
         Student_Name = student_Name;
     }
 
