@@ -144,4 +144,5 @@
     <string name="pay">Pay</string>
     <string name="request_payment">Request Payment</string>
     <string name="delete">Delete</string>
+    <string name="print">print</string>
 </resources>
