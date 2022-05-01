@@ -118,6 +118,7 @@ public class StudentList extends Fragment {
                     s.setRoll_no(jsonObject.getString("Roll_No"));
                     s.setS_class(jsonObject.getString("Class"));
                     s.setPhoto(jsonObject.getString("Photo"));
+                    s.setEmail(jsonObject.getString("Email"));
                     studentList.add(s);
                 } catch ( JSONException e) {
                     e.printStackTrace();

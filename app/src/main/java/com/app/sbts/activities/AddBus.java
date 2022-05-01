@@ -30,6 +30,11 @@ public class AddBus extends AppCompatActivity {
 
     private void upload() {
 
+        String busNo = binding.busNo.getText().toString().trim();
+        if(busNo.isEmpty()){
+            Toast.makeText(AddBus.this,"Fill Bus no",Toast.LENGTH_LONG).show();
+            return;
+        }
         String addBus = getString(R.string.add_bus_url);
 
         StringRequest request = new StringRequest(Request.Method.POST, addBus, response -> Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show(), error -> {

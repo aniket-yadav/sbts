@@ -43,7 +43,6 @@ public class DriverAdaptor extends RecyclerView.Adapter<DriverAdaptor.MyViewHold
         this.role = role;
         this.sContext = sContext;
         this.sData = sData;
-
     }
 
     @NonNull
@@ -61,6 +60,24 @@ public class DriverAdaptor extends RecyclerView.Adapter<DriverAdaptor.MyViewHold
         myViewHolder.binding.driverEmail.setText(sData.get(i).getEmail());
         myViewHolder.binding.driverMobile.setText(sData.get(i).getMobile_No1());
         myViewHolder.binding.driverBus.setText(sData.get(i).getBus_No());
+        myViewHolder.binding.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url  = role.equalsIgnoreCase("Attendee") ? "https://sbts2022.000webhostapp.com/api/delete_attendee.php" : "https://sbts2022.000webhostapp.com/api/delete_driver.php";
+                StringRequest stringRequest = new StringRequest(Request.Method.POST,  url,
+                        response -> {
+                            Toast.makeText(sContext, response, Toast.LENGTH_LONG).show();
+                        }, error -> Toast.makeText(sContext, error.toString(), Toast.LENGTH_LONG).show()) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("email", myViewHolder.binding.driverEmail.getText().toString().trim());
+                        return params;
+                    }
+                };
+                SingletonClass.getInstance(sContext).addToRequestQueue(stringRequest);
+            }
+        });
         myViewHolder.binding.container.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(myViewHolder.binding.getRoot().getContext());
             ViewGroup viewGroup = (ViewGroup) myViewHolder.binding.getRoot().getParent();

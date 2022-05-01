@@ -7,18 +7,28 @@ public class Student {
     private String division;
     private String s_class;
     private String photo;
+private  String email;
 
     public Student() {
     }
 
-    public Student(String name, String roll_no, String division, String s_class, String photo) {
+    public Student(String name, String roll_no, String division, String s_class, String photo,String email) {
 
         this.name = name;
         this.roll_no = roll_no;
         this.division = division;
         this.s_class = s_class;
         this.photo = photo;
+        this.email = email;
 
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {

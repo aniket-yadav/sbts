@@ -53,6 +53,24 @@ public class ParentAdaptor extends RecyclerView.Adapter<ParentAdaptor.MyViewHold
         myViewHolder.binding.parentEmail.setText(sData.get(i).getEmail());
         myViewHolder.binding.parentMobile.setText(sData.get(i).getMobile_No1());
         myViewHolder.binding.studentName.setText(sData.get(i).getStudent_Name());
+        myViewHolder.binding.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url  =  "https://sbts2022.000webhostapp.com/api/delete_parent_registration_request.php";
+                StringRequest stringRequest = new StringRequest(Request.Method.POST,  url,
+                        response -> {
+                            Toast.makeText(sContext, response, Toast.LENGTH_LONG).show();
+                        }, error -> Toast.makeText(sContext, error.toString(), Toast.LENGTH_LONG).show()) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("email", sData.get(myViewHolder.getAdapterPosition()).getEmail());
+                        return params;
+                    }
+                };
+                SingletonClass.getInstance(sContext).addToRequestQueue(stringRequest);
+            }
+        });
 
         if(sData.get(i).getHasPaid().equalsIgnoreCase("YES")){
             myViewHolder.binding.requestPayment.setVisibility(View.GONE);
