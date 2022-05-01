@@ -16,6 +16,7 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -67,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        rss.setSpan(rcs,30,40, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        rss.setSpan(rcs,33,43, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.userRegistration.setText(rss);
         binding.userRegistration.setMovementMethod(LinkMovementMethod.getInstance());
         SpannableString pss = new SpannableString(getString(R.string.reset_password));
@@ -114,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                    StringRequest stringRequest = new StringRequest(Request.Method.POST, getString(R.string.Login_URL), new Response.Listener<String>() {
                        @Override
                        public void onResponse(String response) {
+                           Log.i("loin response", response);
                            try {
                                JSONObject jsonObject = new JSONObject(response);
                                String success = jsonObject.getString("success");
@@ -123,6 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                                    for (int i = 0; i < jsonArray.length(); i++) {
                                        JSONObject object = jsonArray.getJSONObject(i);
                                        role = object.getString("Role").trim();
+                                       Log.i("login response", role);
                                        user = object.getString("Username").trim();
                                        sessionManager.createSession(user, role);
                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);

@@ -163,7 +163,6 @@ public class ParentActivity extends AppCompatActivity {
                 params.put("name", sessionManager.getUserDetails().get(SessionManager.USERNAME));
                 params.put("image", imagetoString(bitmap));
                 params.put("role",sharedPreferences.getString("Role","Parent"));
-
                 return params;
             }
         };
@@ -218,7 +217,6 @@ public class ParentActivity extends AppCompatActivity {
         };
         SingletonClass.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
-
 
     @Override
     protected void onDestroy() {
