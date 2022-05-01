@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:background="@drawable/loading_shape"
         android:layout_margin="4dp"
@@ -30,6 +30,7 @@
             android:text="Student Name"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_marginBottom="5sp"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -58,7 +59,7 @@
             android:id="@+id/student_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="Class"
             tools:ignore="HardcodedText" />
 

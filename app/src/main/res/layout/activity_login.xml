@@ -23,10 +23,10 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/aldrich"
+        android:fontFamily="sans-serif-black"
         android:text="School Bus Tracking System"
-        android:textColor="#03A9F4"
-        android:textSize="20sp"
+        android:textColor="@color/boxstrokecolor"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -42,9 +42,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:boxBackgroundMode="none"
         android:layout_marginBottom="5dp"
-        android:textColorHint="@color/gray">
+        app:boxStrokeColor="@color/boxstrokecolor"
+        app:boxStrokeWidthFocused="2sp"
+        app:boxBackgroundColor="@color/white"
+        app:hintTextColor="@color/black"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
@@ -53,16 +56,19 @@
             android:hint="@string/enter_your_username"
             android:inputType="text"
             app:boxBackgroundMode="none"
-            android:background="@color/white"
             android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundMode="none"
-        android:textColorHint="@color/gray"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="@color/boxstrokecolor"
+        android:layout_marginTop="10dp"
+        app:boxStrokeWidthFocused="2sp"
+        app:boxBackgroundColor="@color/white"
+        app:hintTextColor="@color/black"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
@@ -70,16 +76,14 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_your_password"
             android:inputType="textPassword"
-            android:textColor="@color/black"
-            app:boxBackgroundMode="none"
-            android:background="@color/white"/>
+            android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button_layout"
         android:text="@string/login"
         android:textAlignment="center"

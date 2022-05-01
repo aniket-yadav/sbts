@@ -69,8 +69,11 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="10dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_marginBottom="10dp"
                             android:drawableStart="@drawable/ic_email_black_24dp"
-                            android:textSize="17sp" />
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
@@ -89,8 +92,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginBottom="10dp"
                         android:drawableStart="@drawable/ic_perm_contact_calendar_black_24dp"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -99,10 +104,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginBottom="10dp"
                         android:drawableStart="@drawable/ic_subway_black_24dp"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
-
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/driver_profile_DOB"
@@ -110,11 +116,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginBottom="10dp"
                         android:drawableStart="@drawable/ic_cake_black_24dp"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
-
-
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/driver_profile_address"
@@ -122,8 +128,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
                         android:drawableStart="@drawable/ic_place_black_24dp"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
 
