@@ -98,6 +98,48 @@
         <entry key="..\:/Practices/SBTS/app/src/main/res/mipmap-anydpi-v26/busmarker_round.xml" value="0.1" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1085" />
         <entry key="..\:/Practices/SBTS/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/drawable/student_list_background.xml" value="0.1" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_add_bus.xml" value="0.33" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_attendee.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_driver.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_parent.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_password.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_register_attendee.xml" value="0.25" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_register_driver.xml" value="0.22" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_register_student.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/activity_register_user.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/app_bar_main_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/app_bar_main_attendee.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/app_bar_main_driver.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/bus_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/content_main_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/content_main_attendee.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/content_main_driver.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/custom_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/driver_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_attendee_home.xml" value="0.33" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_attendee_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_bus__locations.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_bus_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_change_password.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_driver_home.xml" value="0.25" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_driver_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_maps.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_my_bus.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_parent_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_parent_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_registration_requests.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_student_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/fragment_students__list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/parent_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/requests_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Sem 3/Project/sbts/app/src/main/res/layout/student_row_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

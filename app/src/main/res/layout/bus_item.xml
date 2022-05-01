@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:layout_margin="4dp"
@@ -35,6 +35,8 @@
                 android:layout_height="wrap_content"
                 android:text="Vehicle Name"
                 android:layout_weight="1"
+                android:textStyle="bold"
+
                 />
 
             <ImageButton
@@ -56,22 +58,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="vehicle Model"
+            android:textStyle="bold"
              />
 
         <TextView
             android:id="@+id/vehicle_driver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vehicle Name"
+            android:text="Driver Name"
             android:layout_marginTop="3dp"
-             />
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/vehicle_capacity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="vehicle capacity"
+            android:text="Vehicle capacity"
+            android:textStyle="bold"
              />
         <TextView
             android:id="@+id/vehicle_color"
@@ -79,6 +84,7 @@
             android:layout_height="wrap_content"
             android:text="Vehicle color"
             android:layout_marginTop="3dp"
+            android:textStyle="bold"
              />
 
         <TextView
@@ -86,7 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="vehicle no"
+            android:text="Vehicle no"
+            android:textStyle="bold"
              />
 
 

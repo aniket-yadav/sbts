@@ -18,12 +18,15 @@
         android:orientation="vertical">
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Bus Attendee"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_full_name_layout"
@@ -31,18 +34,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:hint="@string/full_name"
-            android:textColorHint="@color/black"
-            app:boxBackgroundMode="none"
             app:errorEnabled="true"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textColor="@color/black"
-                android:background="@color/white"/>
+                android:textColor="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,17 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/age"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:background="@color/white"
+                android:maxLength="2"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,17 +81,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/email"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -94,10 +104,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/mobile"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_Mobile1"
@@ -105,7 +118,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -114,10 +126,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/alternate_mobile"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_Mobile2"
@@ -125,7 +140,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -146,17 +160,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/residential_address"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -166,17 +182,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/city"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -187,10 +205,13 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:hint="@string/pin_code"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_pin_code"
@@ -198,7 +219,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="6"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -207,6 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/aadhaar_detail"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -216,10 +237,13 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:hint="@string/aadhaar_no"
-            android:textColorHint="@color/black"
             app:errorEnabled="true"
-            app:boxBackgroundMode="none"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:boxStrokeColor="@color/boxstrokecolor"
+            app:boxStrokeWidthFocused="2sp"
+            app:boxBackgroundColor="@color/white"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -228,7 +252,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="12"
-                android:background="@color/white"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>

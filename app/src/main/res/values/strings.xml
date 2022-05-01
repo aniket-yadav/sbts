@@ -42,7 +42,7 @@
     <string name="address_details">Address Details</string>
     <string name="residential_address">Enter your Residential Address</string>
     <string name="city">City</string>
-    <string name="pin_code">Enter PIN</string>
+    <string name="pin_code">PIN Code</string>
     <string name="id_no">Enter your Child\'s ID Number</string>
     <string name="name">Enter your Child\'s name</string>
     <string name="hybrid">Hybrid</string>
