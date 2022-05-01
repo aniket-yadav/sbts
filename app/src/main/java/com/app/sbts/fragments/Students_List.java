@@ -82,7 +82,7 @@ public class Students_List extends Fragment {
             }
         }
 
-        NavController navController = Navigation.findNavController(requireActivity(), R.id.attendee_frame);
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.admin_frame);
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item);
     }
@@ -146,6 +146,8 @@ public class Students_List extends Fragment {
             e.printStackTrace();
         }
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
